@@ -25,7 +25,7 @@ import './HeroSection.css';
 // ─────────────────────────────────────────────────────────────────────────────
 // CONFIGURATION — Update these values
 // ─────────────────────────────────────────────────────────────────────────────
-const SPLINE_SCENE_URL = 'YOUR_SPLINE_SCENE_URL_HERE';
+// const SPLINE_SCENE_URL = 'YOUR_SPLINE_SCENE_URL_HERE';
 // Get this from Spline: File → Export → React → Copy URL
 
 // ─────────────────────────────────────────────────────────────────────────────
