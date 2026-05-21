@@ -149,7 +149,7 @@ const ContactSection = () => {
             </h3>
 
             {[
-              { label: 'Email', value: 'hello@drava.studio', icon: '◈' },
+              { label: 'Email', value: 'contact.dravastudio@gmail.com', icon: '◈' },
               { label: 'Response Time', value: 'Within 24 hours', icon: '◉' },
               { label: 'Based In', value: 'Digital-First, Global', icon: '◇' },
             ].map(item => (
