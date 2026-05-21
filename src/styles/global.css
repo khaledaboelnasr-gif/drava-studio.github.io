@@ -359,3 +359,18 @@ h1, h2, h3, h4 {
   html { font-size: 14px; }
   .container { padding: 0 var(--space-sm); }
 }
+
+/* ============================================================
+   FORM CONTROLS & DROPDOWN STYLING
+   ============================================================ */
+
+/* Fixes the invisible text issue in dark mode dropdowns */
+select option {
+  background-color: var(--color-bg-secondary); /* Uses your official dark card color */
+  color: var(--color-white); /* Uses your official off-white text color */
+}
+
+/* Dims the "Select a service" placeholder */
+select option[value=""][disabled] {
+  color: var(--color-white-muted); /* Uses your official 30% opacity text color */
+}
