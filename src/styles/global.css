@@ -1,0 +1,361 @@
+/* ============================================================
+   FILE: frontend/src/styles/global.css
+   PURPOSE: The master stylesheet for the entire Drava Studio app.
+            Defines:
+            - CSS Custom Properties (design tokens / variables)
+            - Font imports
+            - Global resets and base styles
+            - Reusable utility classes
+            - Keyframe animations used across the site
+   ============================================================ */
+
+/* ---- Google Fonts Import ---- */
+/* Syne: geometric, futuristic display font for headings */
+/* DM Sans: clean, contemporary for body text */
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:wght@300;400;500&display=swap');
+
+/* ============================================================
+   CSS CUSTOM PROPERTIES (Design Tokens)
+   ============================================================
+   These are like variables in CSS. Defined once here on :root (the <html> element),
+   referenced everywhere else as var(--variable-name).
+   To retheme the whole site, you only change values here.
+*/
+:root {
+  /* --- Color Palette --- */
+  --color-bg-primary: #050811;       /* Deepest black-navy — main page background */
+  --color-bg-secondary: #080d1a;     /* Slightly lighter — cards, sections */
+  --color-bg-tertiary: #0d1526;      /* Lightest dark — inputs, hover states */
+
+  --color-cyan: #00f5ff;             /* Electric cyan — primary neon accent */
+  --color-cyan-dim: #00c8cc;         /* Dimmer cyan for subtle elements */
+  --color-cyan-glow: rgba(0, 245, 255, 0.15); /* Cyan glow as background */
+
+  --color-magenta: #ff00aa;          /* Electric magenta — secondary neon accent */
+  --color-magenta-dim: #cc0088;
+  --color-magenta-glow: rgba(255, 0, 170, 0.15);
+
+  --color-purple: #9b5cff;           /* Tertiary accent — purple */
+  --color-purple-glow: rgba(155, 92, 255, 0.15);
+
+  --color-white: #f0f4ff;            /* Off-white for body text */
+  --color-white-dim: rgba(240, 244, 255, 0.6);  /* 60% opacity for secondary text */
+  --color-white-muted: rgba(240, 244, 255, 0.3); /* 30% opacity for labels, dividers */
+
+  /* --- Typography --- */
+  --font-display: 'Syne', sans-serif;   /* Headings, logos, display text */
+  --font-body: 'DM Sans', sans-serif;   /* Body copy, UI elements */
+
+  /* --- Spacing Scale (multiples of 8px) --- */
+  --space-xs: 0.5rem;   /* 8px */
+  --space-sm: 1rem;     /* 16px */
+  --space-md: 1.5rem;   /* 24px */
+  --space-lg: 2rem;     /* 32px */
+  --space-xl: 3rem;     /* 48px */
+  --space-2xl: 5rem;    /* 80px */
+  --space-3xl: 8rem;    /* 128px */
+
+  /* --- Border Radius --- */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --radius-pill: 9999px;
+
+  /* --- Transitions --- */
+  --transition-fast: 0.15s ease;
+  --transition-base: 0.3s ease;
+  --transition-slow: 0.6s ease;
+
+  /* --- Glows (box-shadow based) --- */
+  --glow-cyan: 0 0 20px rgba(0, 245, 255, 0.4), 0 0 60px rgba(0, 245, 255, 0.15);
+  --glow-magenta: 0 0 20px rgba(255, 0, 170, 0.4), 0 0 60px rgba(255, 0, 170, 0.15);
+  --glow-purple: 0 0 20px rgba(155, 92, 255, 0.4);
+
+  /* --- Border --- */
+  --border-subtle: 1px solid rgba(0, 245, 255, 0.1);
+  --border-accent: 1px solid rgba(0, 245, 255, 0.4);
+
+  /* --- Z-Index Scale --- */
+  --z-base: 1;
+  --z-card: 10;
+  --z-overlay: 100;
+  --z-nav: 200;
+  --z-modal: 300;
+}
+
+/* ============================================================
+   GLOBAL RESET
+   ============================================================
+   Removes browser default margins/paddings and sets consistent box sizing.
+   "box-sizing: border-box" means padding and border are INCLUDED in width/height.
+*/
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ---- Root element ---- */
+html {
+  font-size: 16px;           /* 1rem = 16px */
+  scroll-behavior: smooth;   /* Enables smooth scrolling for anchor links */
+}
+
+/* ---- Body defaults ---- */
+body {
+  background-color: var(--color-bg-primary);
+  color: var(--color-white);
+  font-family: var(--font-body);
+  font-weight: 400;
+  line-height: 1.7;
+  overflow-x: hidden;        /* Prevent horizontal scroll from animations */
+  -webkit-font-smoothing: antialiased; /* Sharper text on Mac/WebKit */
+}
+
+/* ---- Links ---- */
+a {
+  color: var(--color-cyan);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+a:hover { color: var(--color-white); }
+
+/* ---- Images ---- */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ---- Button reset ---- */
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+  font-family: inherit;
+}
+
+/* ============================================================
+   TYPOGRAPHY HELPERS
+*/
+h1, h2, h3, h4 {
+  font-family: var(--font-display);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+/* ============================================================
+   REUSABLE UTILITY CLASSES
+*/
+
+/* Max-width container — centers content with padding */
+.container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+/* Section spacing */
+.section {
+  padding: var(--space-3xl) 0;
+}
+
+/* Neon text colors */
+.text-cyan    { color: var(--color-cyan); }
+.text-magenta { color: var(--color-magenta); }
+.text-purple  { color: var(--color-purple); }
+.text-dim     { color: var(--color-white-dim); }
+
+/* Glowing text effect */
+.glow-text-cyan {
+  text-shadow: 0 0 10px var(--color-cyan), 0 0 30px rgba(0, 245, 255, 0.5);
+}
+
+/* Gradient text — uses background-clip trick */
+.gradient-text {
+  background: linear-gradient(135deg, var(--color-cyan), var(--color-magenta));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Neon bordered card */
+.card {
+  background: var(--color-bg-secondary);
+  border: var(--border-subtle);
+  border-radius: var(--radius-lg);
+  padding: var(--space-lg);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+}
+.card:hover {
+  border-color: rgba(0, 245, 255, 0.4);
+  box-shadow: var(--glow-cyan);
+}
+
+/* Primary CTA button */
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: transparent;
+  color: var(--color-cyan);
+  border: 1px solid var(--color-cyan);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-base);
+  position: relative;
+  overflow: hidden;
+}
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: var(--color-cyan-glow);
+  opacity: 0;
+  transition: opacity var(--transition-base);
+}
+.btn-primary:hover {
+  box-shadow: var(--glow-cyan);
+  color: var(--color-white);
+}
+.btn-primary:hover::before { opacity: 1; }
+
+/* Secondary button */
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 2rem;
+  background: var(--color-cyan);
+  color: var(--color-bg-primary);
+  border: none;
+  border-radius: var(--radius-pill);
+  font-family: var(--font-display);
+  font-size: 0.875rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all var(--transition-base);
+}
+.btn-secondary:hover {
+  box-shadow: var(--glow-cyan);
+  transform: translateY(-2px);
+}
+
+/* Section label chip */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 1rem;
+  background: var(--color-cyan-glow);
+  border: var(--border-accent);
+  border-radius: var(--radius-pill);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+  color: var(--color-cyan);
+  margin-bottom: var(--space-md);
+}
+
+/* Thin horizontal divider with gradient fade */
+.divider {
+  height: 1px;
+  background: linear-gradient(
+    to right,
+    transparent,
+    var(--color-cyan-dim),
+    transparent
+  );
+  margin: var(--space-xl) 0;
+  opacity: 0.4;
+}
+
+/* Scroll-triggered fade-in (JS adds .visible class) */
+.fade-in {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ============================================================
+   KEYFRAME ANIMATIONS
+*/
+
+/* Pulsing glow ring for decorative elements */
+@keyframes pulse-glow {
+  0%, 100% { opacity: 0.4; transform: scale(1); }
+  50%       { opacity: 0.8; transform: scale(1.05); }
+}
+
+/* Floating up-down for the hero 3D container */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50%       { transform: translateY(-15px); }
+}
+
+/* Rotating slow spin for background grid/orbit decorations */
+@keyframes slow-spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* Horizontal scan line */
+@keyframes scan-line {
+  from { transform: translateY(-100%); }
+  to   { transform: translateY(100vh); }
+}
+
+/* Blinking cursor */
+@keyframes blink {
+  50% { opacity: 0; }
+}
+
+/* Neon flicker for logo */
+@keyframes flicker {
+  0%, 19%, 21%, 23%, 25%, 54%, 56%, 100% { opacity: 1; }
+  20%, 24%, 55% { opacity: 0.4; }
+}
+
+/* ============================================================
+   SCROLLBAR STYLING (webkit browsers)
+*/
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--color-bg-primary); }
+::-webkit-scrollbar-thumb {
+  background: var(--color-cyan-dim);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--color-cyan); }
+
+/* ============================================================
+   RESPONSIVE BREAKPOINTS
+*/
+@media (max-width: 1024px) {
+  :root { --space-3xl: 5rem; }
+  .container { padding: 0 var(--space-md); }
+}
+@media (max-width: 768px) {
+  html { font-size: 15px; }
+  :root { --space-3xl: 4rem; }
+}
+@media (max-width: 480px) {
+  html { font-size: 14px; }
+  .container { padding: 0 var(--space-sm); }
+}
