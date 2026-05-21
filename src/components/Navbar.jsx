@@ -51,14 +51,34 @@ const Navbar = () => {
     <nav className={`navbar ${scrolled ? 'navbar--scrolled' : ''}`}>
       <div className="navbar__inner">
 
-        {/* ── Logo ─────────────────────────────────────────────────────── */}
-        <Link to="/" className="navbar__logo">
-          DRAVA<span className="navbar__logo-dot">.</span>STUDIO
-          <span className="navbar__logo-sub">Digital Agency</span>
+{/* ── Logo ─────────────────────────────────────────────────────── */}
+        <Link 
+          to="/" 
+          className="navbar__logo"
+          style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}
+          onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+        >
+          <img src="/logo.png" alt="Drava Studio Cube Logo" style={{ height: '40px', width: 'auto' }} />
+          <span style={{ 
+            fontFamily: 'var(--font-display)', 
+            fontSize: '1.5rem', 
+            fontWeight: '900', 
+            letterSpacing: '0.05em',
+            color: 'white'
+          }}>
+            Drava Studio
+          </span>
         </Link>
 
         {/* ── Desktop Links ───────────────────────────────────────────── */}
+
+        
         <ul className="navbar__links">
+          <li>
+            <Link to="/" className="navbar__link" onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}>
+              Home
+            </Link>
+          </li>
           <li><button className="navbar__link" onClick={() => scrollToSection('about')}>About</button></li>
           <li><button className="navbar__link" onClick={() => scrollToSection('services')}>Services</button></li>
           <li><Link to="/portfolio" className="navbar__link">Portfolio</Link></li>
