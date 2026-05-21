@@ -237,9 +237,14 @@ const ContactSection = () => {
                       className="input" name="service"
                       value={formData.service} onChange={handleChange}
                       style={{ cursor: 'pointer' }}>
-                      <option value="">Select a service</option>
+                      {/* Hardcoding the dark styles directly into the React components */}
+                      <option value="" style={{ backgroundColor: '#080d1a', color: '#8892b0' }}>
+                        Select a service
+                      </option>
                       {SERVICE_OPTIONS.map(opt => (
-                        <option key={opt} value={opt}>{opt}</option>
+                        <option key={opt} value={opt} style={{ backgroundColor: '#080d1a', color: '#ffffff' }}>
+                          {opt}
+                        </option>
                       ))}
                     </select>
                   </div>
