@@ -55,16 +55,31 @@ const Navbar = () => {
         <Link 
           to="/" 
           className="navbar__logo"
-          style={{ display: 'flex', alignItems: 'center', gap: '12px', textDecoration: 'none' }}
+          style={{ 
+            display: 'flex', 
+            flexDirection: 'row', /* Forces the logo and text to sit side-by-side */
+            alignItems: 'center', 
+            gap: '12px', 
+            textDecoration: 'none' 
+          }}
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-          <img src="/logo.png" alt="Drava Studio Cube Logo" style={{ height: '40px', width: 'auto' }} />
+          <img 
+            src="/logo.png" 
+            alt="Drava Studio Cube Logo" 
+            style={{ 
+              height: '40px', 
+              width: 'auto',
+              filter: 'invert(1) brightness(2)' /* Instantly turns a dark logo bright white */
+            }} 
+          />
           <span style={{ 
             fontFamily: 'var(--font-display)', 
             fontSize: '1.5rem', 
             fontWeight: '900', 
             letterSpacing: '0.05em',
-            color: 'white'
+            color: 'white',
+            whiteSpace: 'nowrap' /* Prevents the text from wrapping underneath the logo */
           }}>
             Drava Studio
           </span>
