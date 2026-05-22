@@ -21,10 +21,8 @@ const Footer = () => {
       <div className="container">
 
         {/* ── Top Row ─────────────────────────────────────────────────── */}
-        <div style={{
-          display: 'grid', gridTemplateColumns: '2fr 1fr 1fr',
-          gap: 'var(--spacing-2xl)', marginBottom: 'var(--spacing-2xl)',
-        }}>
+// NEW
+<div className="footer-grid">
           {/* Brand Column */}
           <div>
             <Link to="/" style={{ textDecoration: 'none' }}>
@@ -105,12 +103,8 @@ const Footer = () => {
         </div>
 
         {/* ── Bottom Row ─────────────────────────────────────────────── */}
-        <div style={{
-          borderTop: '1px solid var(--border-color)',
-          paddingTop: 'var(--spacing-xl)',
-          display: 'flex', justifyContent: 'space-between', alignItems: 'center',
-          flexWrap: 'wrap', gap: 'var(--spacing-md)',
-        }}>
+// NEW
+<div className="footer-bottom">
           <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--text-xs)', letterSpacing: '0.05em' }}>
             © {currentYear} Drava Studio. All rights reserved.
           </p>

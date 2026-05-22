@@ -383,3 +383,52 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
   }
 }
+
+/* ── Final Mobile Layout Classes (Replaces Inline Styles) ───────────────────── */
+
+/* Desktop Grid Rules */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--spacing-3xl);
+  align-items: center;
+  margin-bottom: var(--spacing-3xl);
+}
+
+.pillars-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.services-grid {
+  display: grid;
+  /* auto-fit minmax is inherently responsive, but we want strict control */
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+}
+
+.portfolio-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: var(--spacing-xl);
+}
+
+/* Strict Mobile Overrides */
+@media (max-width: 768px) {
+  /* Force all remaining grids into a single vertical column */
+  .about-grid,
+  .pillars-grid,
+  .services-grid,
+  .portfolio-gallery {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* Tablet Adjustments (Optional but recommended) */
+@media (min-width: 769px) and (max-width: 1024px) {
+  .services-grid,
+  .portfolio-gallery {
+    grid-template-columns: repeat(2, 1fr) !important;
+  }
+}

@@ -77,13 +77,8 @@ const AboutSection = () => {
         </div>
 
         {/* ── Main Content Grid ─────────────────────────────────────── */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1fr',
-          gap: 'var(--spacing-3xl)',
-          alignItems: 'center',
-          marginBottom: 'var(--spacing-3xl)',
-        }}>
+// NEW
+<div className="about-grid">
 
           {/* Left: Mission Statement */}
           <div>
@@ -154,11 +149,8 @@ const AboutSection = () => {
         </div>
 
         {/* ── Three Pillars Grid ─────────────────────────────────────── */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(3, 1fr)',
-          gap: 'var(--spacing-xl)',
-        }}>
+// NEW
+<div className="pillars-grid">
           {/* Map over the pillars array — each item renders as a card */}
           {pillars.map((pillar, index) => (
             <div key={index} className="card" style={{ textAlign: 'center' }}>

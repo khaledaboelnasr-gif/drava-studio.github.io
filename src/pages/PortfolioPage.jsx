@@ -119,11 +119,7 @@ const PortfolioPage = () => {
 
         {/* ── Loading State ─────────────────────────────────────────── */}
         {loading && (
-          <div style={{
-            display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-            gap: 'var(--spacing-xl)',
-          }}>
+<div className="portfolio-gallery">
             {/* Render 6 skeleton cards as placeholders while loading */}
             {Array.from({ length: 6 }).map((_, i) => (
               <div key={i} className="skeleton" style={{ height: '350px', borderRadius: 'var(--radius-lg)' }} />
@@ -155,11 +151,8 @@ const PortfolioPage = () => {
             </p>
 
             {filteredProjects.length > 0 ? (
-              <div style={{
-                display: 'grid',
-                gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-                gap: 'var(--spacing-xl)',
-              }}>
+// NEW
+<div className="portfolio-gallery">
                 {/*
                   Map over the filtered projects array.
                   Each project renders as a PortfolioCard.

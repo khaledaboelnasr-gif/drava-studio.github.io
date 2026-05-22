@@ -108,11 +108,8 @@ const ServicesSection = () => {
           minmax(320px, 1fr) = each column is at least 320px, but fills available space.
           On wide screens: 3 columns. On medium: 2. On mobile: 1.
         */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fit, minmax(320px, 1fr))',
-          gap: 'var(--spacing-xl)',
-        }}>
+        <div className="services-grid">
+          
           {services.map((service) => {
             // Is this card currently being hovered?
             const isHovered = hoveredId === service.id;
