@@ -130,14 +130,8 @@ const ContactSection = () => {
         </div>
 
         {/* ── Form + Info Layout ─────────────────────────────────────── */}
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: '1fr 1.5fr',
-          gap: 'var(--spacing-3xl)',
-          alignItems: 'start',
-          maxWidth: '900px',
-          margin: '0 auto',
-        }}>
+// NEW
+<div className="contact-grid">
 
           {/* Left: Contact Info */}
           <div>
@@ -196,7 +190,8 @@ const ContactSection = () => {
               /* ── FORM STATE ─────────────────────────────────────── */
               <div>
                 {/* Name + Email row */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--spacing-md)', marginBottom: 'var(--spacing-md)' }}>
+                // NEW
+<div className="form-row">
                   <div>
                     <label style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-sm)' }}>
                       Name *
@@ -219,7 +214,7 @@ const ContactSection = () => {
                 </div>
 
                 {/* Phone + Service row */}
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 'var(--spacing-md)', marginBottom: 'var(--spacing-md)' }}>
+                <div className="form-row">
                   <div>
                     <label style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-sm)' }}>
                       Phone

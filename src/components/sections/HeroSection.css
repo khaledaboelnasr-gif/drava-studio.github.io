@@ -286,3 +286,28 @@
   .hero__overline { justify-content: center; }
   .hero__float-label { display: none; }
 }
+/* ── Strict Mobile (Phones under 768px) ──────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Stack the buttons vertically so they span the full width */
+  .hero__cta-group {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+  }
+  
+  .hero__cta-group .btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* Allow stats to wrap onto multiple lines to prevent horizontal scrolling */
+  .hero__stats {
+    flex-wrap: wrap;
+    gap: 1.5rem;
+  }
+
+  /* Shrink the 3D cube down just a bit more */
+  .hero__3d-container {
+    transform: scale(0.8);
+  }
+}

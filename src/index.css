@@ -322,3 +322,64 @@ h1, h2, h3, h4, h5, h6 {
 .animate-fade-in {
   animation: fadeInUp 0.6s ease forwards;
 }
+/* Add inside your existing @media (max-width: 768px) block in index.css */
+
+  /* Force grids to single column on mobile */
+  .portfolio-grid, 
+  .services-grid, 
+  .grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* ── Component Layout Classes (Replaces Inline Styles) ───────────────────── */
+
+/* Desktop Grid Rules */
+.contact-grid {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr; /* Info on left, Form on right */
+  gap: var(--spacing-3xl);
+  align-items: start;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr; /* Two inputs side-by-side */
+  gap: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr; /* Wide brand col, two narrow link cols */
+  gap: var(--spacing-2xl);
+  margin-bottom: var(--spacing-2xl);
+}
+
+.footer-bottom {
+  border-top: 1px solid var(--border-color);
+  padding-top: var(--spacing-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+/* Strict Mobile Overrides */
+@media (max-width: 768px) {
+  /* Force all grids to stack into a single vertical column */
+  .contact-grid,
+  .form-row,
+  .footer-grid {
+    grid-template-columns: 1fr;
+  }
+
+  /* Center the bottom footer row */
+  .footer-bottom {
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+  }
+}
