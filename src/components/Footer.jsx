@@ -21,7 +21,7 @@ const Footer = () => {
       <div className="container">
 
         {/* ── Top Row ─────────────────────────────────────────────────── */}
-// NEW
+
 <div className="footer-grid">
           {/* Brand Column */}
           <div>
@@ -103,7 +103,7 @@ const Footer = () => {
         </div>
 
         {/* ── Bottom Row ─────────────────────────────────────────────── */}
-// NEW
+
 <div className="footer-bottom">
           <p style={{ color: 'var(--color-text-secondary)', fontSize: 'var(--text-xs)', letterSpacing: '0.05em' }}>
             © {currentYear} Drava Studio. All rights reserved.

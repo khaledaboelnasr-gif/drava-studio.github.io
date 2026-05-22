@@ -130,7 +130,7 @@ const ContactSection = () => {
         </div>
 
         {/* ── Form + Info Layout ─────────────────────────────────────── */}
-// NEW
+
 <div className="contact-grid">
 
           {/* Left: Contact Info */}
@@ -190,7 +190,7 @@ const ContactSection = () => {
               /* ── FORM STATE ─────────────────────────────────────── */
               <div>
                 {/* Name + Email row */}
-                // NEW
+
 <div className="form-row">
                   <div>
                     <label style={{ display: 'block', fontFamily: 'var(--font-display)', fontSize: '0.6rem', letterSpacing: '0.15em', textTransform: 'uppercase', color: 'var(--color-text-secondary)', marginBottom: 'var(--spacing-sm)' }}>

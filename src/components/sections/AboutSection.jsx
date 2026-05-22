@@ -77,7 +77,7 @@ const AboutSection = () => {
         </div>
 
         {/* ── Main Content Grid ─────────────────────────────────────── */}
-// NEW
+
 <div className="about-grid">
 
           {/* Left: Mission Statement */}
@@ -149,7 +149,7 @@ const AboutSection = () => {
         </div>
 
         {/* ── Three Pillars Grid ─────────────────────────────────────── */}
-// NEW
+
 <div className="pillars-grid">
           {/* Map over the pillars array — each item renders as a card */}
           {pillars.map((pillar, index) => (
