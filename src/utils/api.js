@@ -24,7 +24,7 @@ const api = axios.create({
   // process.env.REACT_APP_API_URL reads from the frontend .env file.
   // In development: http://localhost:5000/api
   // In production:  https://your-backend-url.railway.app/api
-  baseURL: process.env.REACT_APP_API_URL || 'http://localhost:5000/api',
+  baseURL: 'https://drava-studio-api.vercel.app/api',
 
   // Default headers sent with every request
   headers: {
